@@ -8,6 +8,34 @@ Step 1:-Install the 1)package.json,2)Express ,3)graphql,4)Express-graphql
   cmd:npm install express.
   cmd:npm install graphql.
   cmd:npm install express-graphql.
+    cmd:npm install nodemon -g.(why nodemon ?)
   
   
-  
+
+
+
+  What Is RootQuary?
+  In root quary we have to write a quary in such way that we have to access all the
+  other quary.  
+
+  Why we want wright it?
+  It is writen to access all other quary
+
+  structure 
+
+  const Roottype= new GraphQLQuary({
+  name:"RootQuaryType",
+  fields:{
+    book:{
+      type:BookType,
+      args:{id:{type:GraphQLQuary}},
+      
+      resolve(parent,args)
+    }
+  }
+}) 
+args: From frent if we want access the book we need to unique id or unique attribute access it 
+so we need to pass it ass args .
+
+resolve:
+

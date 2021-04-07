@@ -1,18 +1,26 @@
-import express from 'express';
-import {graphqlHTTP}   from 'express-graphql';
-import { buildSchema } from  'graphql';
-import schema from './schema/schema.js';
+const express = require('express');
+const { graphqlHTTP } = require('express-graphql');
+const schema = require('./schema/schema')
+const mongoose = require('mongoose')
 
-const app=express()
 
+
+const app = express()
+ 
+mongoose.connect('mongodb://localhost/fullStackApp', { useNewUrlParser: true , useUnifiedTopology: true , useCreateIndex: true})
+mongoose.set("useCreateIndex", true)
+mongoose.connection.once('open',()=>
+{
+  console.log('connected to dataBase')
+})
 
 
 app.use('/graphql', graphqlHTTP({
-   schema,
-   graphiql:true,
-  
+  schema,
+  graphiql: true,
+
 }));
 
-app.listen(4000.,()=>{
+app.listen(4000., () => {
   console.log("now listening for request  port 4000");
 })

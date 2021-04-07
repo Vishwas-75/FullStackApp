@@ -18,8 +18,15 @@ Step 1:-Install the 1)package.json,2)Express ,3)graphql,4)Express-graphql
   In root quary we have to write a quary in such way that we have to access all the
   other quary.  
 
-  Why we want wright it?
+  Why we want wright RootQuary?
   It is writen to access all other quary
+   
+  What is the adantages of graphQl?
+  #Single end point.
+  #Avoid multiple calls.
+
+
+
 
   structure 
 
@@ -34,8 +41,46 @@ Step 1:-Install the 1)package.json,2)Express ,3)graphql,4)Express-graphql
     }
   }
 }) 
-args: From frent if we want access the book we need to unique id or unique attribute access it 
+args: From parent if we want access the book we need to unique id or unique attribute access it 
 so we need to pass it ass args .
 
-resolve:
+resolve:It is a function used to fetch the data. 
 
+why we want define fields as a function?
+Because code is excuted from top to buttom ,when we bring relation between two quary 
+we need to specify the type of other quary, so if we dont declare the fields as a function it
+will be executed directly, during execution it will find type and throw an error saying
+ex:"BookType is not defined" or "AuthorType is not defined"; 
+
+
+MongoDb
+Collection.init(); 
+
+Appolo Client:
+
+What is Appolo Client?
+Apollo Client is a comprehensive state management library for JavaScript that enables you to manage 
+both local and remote data with GraphQL. Use it to fetch, cache, and modify application data, all while 
+automatically updating your UI.
+
+Why Appolo Client?
+>Declarative data fetching.
+With Apollo's declarative approach to data fetching, all of the logic for retrieving your data, tracking 
+loading and error states, and updating your UI is encapsulated by the useQuery Hook.
+ex:
+'''
+    function Feed() {
+  const { loading, error, data } = useQuery(GET_DOGS);
+  if (error) return <Error />;
+  if (loading || !data) return <Fetching />;
+
+  return <DogList dogs={data.dogs} />;
+  } 
+'''
+>
+
+Cors:
+
+What is Cors?
+Cross-Origin Resource Sharing (CORS) is a protocol that enables scripts running on a browser client to interact
+ with resources from a different origin. 

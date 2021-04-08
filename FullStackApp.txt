@@ -63,6 +63,9 @@ Apollo Client is a comprehensive state management library for JavaScript that en
 both local and remote data with GraphQL. Use it to fetch, cache, and modify application data, all while 
 automatically updating your UI.
 
+The quary that you are writed in the http//localhost/4000 , we need to write thet quary in our client side send to 
+the backend , So to send that quary to backend we need  Appolo client
+
 Why Appolo Client?
 >Declarative data fetching.
 With Apollo's declarative approach to data fetching, all of the logic for retrieving your data, tracking 
@@ -78,9 +81,21 @@ ex:
   } 
 '''
 >
+Same Origin policy
+------------------
+The same-origin policy is a critical security mechanism that restricts how a document or script loaded from 
+one origin can interact with a resource from another origin. It helps isolate potentially malicious documents, 
+reducing possible attack vectors.
 
-Cors:
+How to indentify Same origin?
+Two URLs have the same origin if the protocol, port (if specified), and host are the same for both.
+
+Cross-Origin Resource Sharing (Cors):
+-------------------------------------
 
 What is Cors?
 Cross-Origin Resource Sharing (CORS) is a protocol that enables scripts running on a browser client to interact
- with resources from a different origin. 
+with resources from a different origin. 
+
+If we made any request to another origin (means differnt server) Same Origin Policy will restricts the that request
+in order over come that we will use cors so this will allow to make request and get result.
